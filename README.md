@@ -150,7 +150,7 @@ You can use the screenshots to debug your code by rendering additional informati
 
 The Product Manager has already created the user stories for _Periodic Tables_. Each of the user stories is listed below, and your Product Manager wants them to be implemented in the order in which they are listed. Another developer has already written the tests for each of the user stories so that you don't have to.
 
-Although the user stories do not say anything about deployment, you should consider deploying early and often. You may even decide to deploy before adding any features. Since this is a monorepo, you can follow the instructions in [this Vercel article on monorepos](https://vercel.com/blog/monorepos) to deploy this project.
+Although the user stories do not say anything about deployment, you should consider deploying early and often. You may even decide to deploy before adding any features. We recommend that you use [Heroku](https://devcenter.heroku.com/articles/deploying-nodejs) to deploy this project.
 
 ### US-01 Create and list reservations
 
@@ -286,7 +286,6 @@ so that I know which tables are occupied and free.
    - display a list of all tables, sorted by `table_name`, in another area of the dashboard
      - Each table will display "Free" or "Occupied" depending on whether a reservation is seated at the table.
      - The "Free" or "Occupied" text must have a `data-table-id-status=${table.table_id}` attribute, so it can be found by the tests.
-   - The areas for displaying reservations and tables can be arranged any way you like; left and right or top and bottom, etc.
 
 1. The `/reservations/:reservation_id/seat` page will
    - have the following required and not-nullable fields:
