@@ -1,0 +1,26 @@
+[
+    {
+        "table_name": "Bar #1",
+        "capacity": 1,
+        "occupied": false,
+        "reservation_id": null
+    },
+    {
+        "table_name": "Bar #2",
+        "capacity": 1,
+        "occupied": false,
+        "reservation_id": null
+    },
+    {
+        "table_name": "Table #1",
+        "capacity": 6,
+        "occupied": false,
+        "reservation_id": null
+    },
+    {
+        "table_name": "Table #2",
+        "capacity": 6,
+        "occupied": false,
+        "reservation_id": null
+    }
+]

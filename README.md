@@ -171,6 +171,7 @@ so that I know how many customers will arrive at the restaurant on a given day.
    - display a `Submit` button that, when clicked, saves the new reservation, then displays the `/dashboard` page for the date of the new reservation
    - display a `Cancel` button that, when clicked, returns the user to the previous page
    - display any error messages returned from the API
+   
 1. The `/dashboard` page will
    - list all reservations for one date only. (E.g. if the URL is `/dashboard?date=2035-12-30` then send a GET to `/reservations?date=2035-12-30` to list the reservations for that date). The date is defaulted to today, and the reservations are sorted by time.
    - display next, previous, and today buttons that allow the user to see reservations on other dates
@@ -275,6 +276,7 @@ so that I know which tables are occupied and free.
      - Capacity: `<input name="capacity" />`, this is the number of people that can be seated at the table, which must be at least 1 person.
    - display a `Submit` button that, when clicked, saves the new table then displays the `/dashboard` page
    - display a `Cancel` button that, when clicked, returns the user to the previous page
+
 1. The `/dashboard` page will:
 
    - display a list of all reservations in one area.

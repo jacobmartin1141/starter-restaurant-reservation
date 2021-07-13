@@ -13,6 +13,7 @@ function formatDate(reservation) {
  *  the specified reservation(s) with the reservation_date property formatted as YYYY-MM-DD.
  */
 export default function formatReservationDate(reservations) {
+  // console.log(reservations);
   return Array.isArray(reservations)
     ? reservations.map(formatDate)
     : formatDate(reservations);

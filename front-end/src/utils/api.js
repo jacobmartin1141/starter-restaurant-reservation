@@ -63,7 +63,54 @@ export async function listReservations(params, signal) {
   Object.entries(params).forEach(([key, value]) =>
     url.searchParams.append(key, value.toString())
   );
-  return await fetchJson(url, { headers, signal }, [])
+  return await fetchJson(url, { method: 'GET', headers, signal }, [])
+    // .then(console.log)
     .then(formatReservationDate)
     .then(formatReservationTime);
+}
+
+export async function readReservation(reservationId, params, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${reservationId}`);
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+  return await fetchJson(url, { method: 'GET', headers, signal }, []);
+}
+
+export async function findReservation(mobile_phone, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations?mobile_phone=${mobile_phone}`);
+  return await fetchJson(url, {method: 'GET', signal});
+}
+
+export async function createReservation(body, params, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations`);
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+  return await fetch(url, { method: 'POST', headers, signal, body});
+}
+
+export async function updateReservationData(reservationId, newData, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${reservationId}/status`);
+  return await fetchJson(url, { method: 'PUT', headers, signal, body: JSON.stringify({data: {...newData}}) });
+}
+
+export async function listTables(signal) {
+  const url = new URL(`${API_BASE_URL}/tables`);
+  return await fetchJson(url, { method: 'GET', headers, signal }, []);
+}
+
+export async function seatTable(table_id, reservation_id, signal) {
+  const url = new URL(`${API_BASE_URL}/tables/${table_id}/seat`);
+  return await fetchJson(url, { method: 'PUT', headers, signal, body: JSON.stringify({ data: {reservation_id} }) }, []);
+}
+
+export async function createTable(body, signal) {
+  const url = new URL(`${API_BASE_URL}/tables`);
+  return await fetch(url, { method: 'POST', headers, signal, body});
+}
+
+export async function finishTable(table_id, signal) {
+  const url = new URL(`${API_BASE_URL}/tables/${table_id}/seat`);
+  return await fetch(url, { method: 'DELETE', headers, signal});
 }
